@@ -1,0 +1,201 @@
+@font-face {
+  font-family: Velocette;
+  src: url(fonts/Velocette.woff2);
+}
+
+@keyframes hr-stretch {
+  0% {
+    width: 0;
+    border-color: red;
+  }
+
+  100% {
+    border-color: #00000044;
+    width: 90%;
+  }
+}
+
+@keyframes finish-line {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+html,
+body {
+  margin: unset;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #ff8c81e3;
+}
+
+form,
+h3 {
+  padding: 0 0.5em;
+}
+
+h1 {
+  text-shadow: white 2px 2px;
+  font-family: Velocette !important;
+  font-size: 4em;
+}
+
+h3 {
+  font-weight: 400;
+}
+
+#searchForm {
+  padding-bottom: 1rem;
+}
+
+#searchForm select {
+  text-align: center;
+}
+
+#searchMake {
+  text-transform: capitalize;
+}
+
+#content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btnSearch {
+  border: unset;
+  padding: unset;
+  width: 3em;
+  height: 3em;
+  margin: 1em;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+  background: #111;
+  color: #fff;
+  transition: border-color 0.2s;
+}
+
+.btnSearch:hover {
+  border-color: rgb(97, 166, 251);
+  color: #fff;
+  cursor: pointer;
+}
+
+.btnSearch.ignition {
+  background: radial-gradient(circle,
+      rgba(9, 9, 121, 1) 0%,
+      rgba(9, 9, 121, 1) 33%,
+      rgba(0, 212, 255, 1) 100%);
+  border-color: rgb(97, 166, 251);
+}
+
+/* each drink div holds the image and title. The layout for this is done via a flexbox column. */
+.result {
+  background: #fff;
+  border-radius: 1em;
+  margin: 0.5em;
+  padding: 0.5em;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* set a rounded corner on the image thumbnails. */
+/* .result img{
+  border-radius: 1rem;
+} */
+
+.result p {
+  margin: 2px 0;
+  text-align: left;
+}
+
+.result p.make {
+  display: none;
+  text-transform: capitalize;
+  font-weight: bold;
+  height: 3em;
+  padding: 1em 0;
+  margin: unset;
+}
+
+.result.logoMissing p.make {
+  display: block;
+}
+
+.result.logoMissing img.makeLogo {
+  display: none;
+}
+
+.result p.model {
+  text-transform: capitalize;
+}
+
+.result p.class {
+  text-transform: capitalize;
+}
+
+.result img.makeLogo {
+  /* max-width: 3em; */
+  height: 3em;
+  padding: 1em 0;
+  filter: grayscale(1);
+}
+
+header hr {
+  border: unset;
+  border: 10px solid white;
+  /* border-style: inset; */
+}
+
+p.year {
+  display: flex;
+  justify-content: space-between;
+}
+
+span.fuelTypeImg {
+  background-repeat: no-repeat;
+  width: 1em;
+  height: 1em;
+}
+
+.fuelTypeE span.fuelTypeImg {
+  background-image: url(img/electric.svg);
+}
+
+.fuelTypeG span.fuelTypeImg {
+  background-image: url(img/gas.svg);
+}
+
+.result hr {
+  margin: unset;
+  width: 10%;
+  border: unset;
+  border-top: 1px solid red;
+  animation: hr-stretch 1s ease-in-out forwards;
+}
+
+div#finishPattern {
+  margin-top: 1em;
+  background: url("img/finish-flag-pattern.svg");
+  height: calc(50px + 2vw);
+  width: 0;
+}
+
+.finishAnimation {
+  animation: finish-line 1.5s cubic-bezier(0, 0, 0.24, 1) forwards;
+  animation-delay: 1s;
+}
+
+footer {
+  padding: 2rem;
+}

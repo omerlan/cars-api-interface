@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Vehicle Search</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Vehicle Search</h1>
+    <hr>
+    <hr>
+    <img src="" />
+    <h3>Select your <b>make</b>, <b>year</b>, and even <b>fuel type</b> to see vehicle models across the years!</h3>
+  </header>
+  <form id="searchForm">
+    <select id="searchMake">
+      <option value="" selected disabled hidden>Make...</option>
+      <option value="acura">acura</option>
+      <option value="aston martin">aston martin</option>
+      <option value="audi">audi</option>
+      <option value="bmw">BMW</option>
+      <option value="ferrari">ferrari</option>
+      <option value="ford">ford</option>
+      <option value="genesis">genesis</option>
+      <option value="honda">honda</option>
+      <option value="hyundai">hyundai</option>
+      <option value="infiniti">infiniti</option>
+      <option value="jaguar">jaguar</option>
+      <option value="kia">kia</option>
+      <option value="lexus">lexus</option>
+      <option value="mazda">mazda</option>
+      <option value="mercedes-benz">mercedes-benz</option>
+      <option value="mini">mini</option>
+      <option value="mitsubishi">mitsubishi</option>
+      <option value="porsche">porsche</option>
+      <option value="subaru">subaru</option>
+      <option value="tesla">tesla</option>
+      <option value="toyota">toyota</option>
+      <option value="volkswagen">volkswagen</option>
+      <option value="volvo">volvo</option>
+    </select>
+    <select id="searchYear">
+      <option value="" selected disabled hidden>Year...</option>
+      <option value="2023">2023</option>
+      <option value="2022">2022</option>
+      <option value="2021">2021</option>
+      <option value="2020">2020</option>
+      <option value="2019">2019</option>
+      <option value="2018">2018</option>
+      <option value="2017">2017</option>
+      <option value="2016">2016</option>
+      <option value="2015">2015</option>
+      <option value="2014">2014</option>
+      <option value="2013">2013</option>
+      <option value="2012">2012</option>
+      <option value="2011">2011</option>
+      <option value="2010">2010</option>
+      <option value="2009">2009</option>
+      <option value="2008">2008</option>
+      <option value="2007">2007</option>
+      <option value="2006">2006</option>
+      <option value="2005">2005</option>
+      <option value="2004">2004</option>
+      <option value="2003">2003</option>
+      <option value="2002">2002</option>
+      <option value="2001">2001</option>
+      <option value="2000">2000</option>
+      <option value="1999">1999</option>
+      <option value="1998">1998</option>
+      <option value="1997">1997</option>
+      <option value="1996">1996</option>
+      <option value="1995">1995</option>
+      <option value="1994">1994</option>
+
+    </select>
+    <select id="searchFuel">
+      <option value="" selected disabled hidden>Fuel type...</option>
+      <option value="gas">Gas</option>
+      <option value="diesel">Diesel</option>
+      <!-- process: making the values more human readible -->
+      <option value="electricity">Electric</option>
+    </select>
+    <select id="searchLimit">
+      <option value="" selected disabled hidden>Limit results...</option>
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="50">50</option>
+    </select>
+    <div>
+      <input class="btnReset" onclick="clearQuery()" type="reset" />
+      <button class="btnSearch" id="btnSearch" onclick="ignition()">GO!</button>
+    </div>
+  </form>
+  <main id="content">
+    <!-- JavaScript will put search results here. -->
+  </main>
+  <div id="finishPattern">
+  </div>
+  <footer>
+    <i>Created by <a href="https://omer.ca">Omer Landau</a> in the context
+      of Systems Design in the Interaction Design program at Sheridan College.
+      Car data via
+      <a href="https://api-ninjas.com/api/cars">Cars API on API Ninjas</a></i>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
