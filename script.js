@@ -1,7 +1,9 @@
-// Setup variables to hold dynamic elements
+// Variables to connect html to elements.
 const finishPattern = document.querySelector("#finishPattern");
 const searchForm = document.querySelector("#searchForm");
 const mainContent = document.querySelector("#content");
+
+// Links to each automaker's logo in svg format, stored as variables.
 const logoAcura =
   "https://upload.wikimedia.org/wikipedia/commons/a/af/Acura_logo.svg";
 const logoAstonMartin =
@@ -53,17 +55,20 @@ searchForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   // get the contexts of the search input box.
+
+  // first a set of HTML elements.
   let searchMake = document.querySelector("#searchMake");
   let searchLimit = document.querySelector("#searchLimit");
   let searchYear = document.querySelector("#searchYear");
   let searchFuel = document.querySelector("#searchFuel");
+
+  // and then their user-entered values.
   let searchMakeValue = searchMake.value;
   let searchLimitValue = searchLimit.value;
   let searchYearValue = searchYear.value;
   let searchFuelValue = searchFuel.value;
 
-  // let's build a URL with all the necessary query parameters (searchParams)
-  // the key element here is to search for a title based on user input
+  // Building a URL with the optional and required query parameters.
   let url = new URL("https://api.api-ninjas.com/v1/cars");
   url.searchParams.set("make", searchMakeValue);
   url.searchParams.set("year", searchYearValue);
@@ -73,9 +78,7 @@ searchForm.addEventListener("submit", (event) => {
   // log the above generated URL to the console
   console.log(url.href);
 
-  // Rapid API Key as specified by RapidAPI documentation.
-  // NOTE: You may need to get your own API Key if this one runs out of bandwidth.
-
+// code copied from Insomnia to run the REST fetch function.
   const options = {
     method: "GET",
     headers: {
@@ -103,10 +106,12 @@ const displayResults = (response) => {
   finishPattern.classList.add("finishAnimation");
   if (response) {
     response.forEach((result) => {
+      
       // create a div to contain the vehicle.
       let div = document.createElement("div");
       div.classList.add("result");
-
+      
+      //  run through a set of conditional statements to determine which logo asset to load; depending on the automaker.
       if (result.make == "acura") {
         makeLogo = logoAcura;
       } else if (result.make == "aston martin") {
@@ -152,16 +157,18 @@ const displayResults = (response) => {
       } else if (result.make == "volvo") {
         makeLogo = logoVolvo;
       } else {
+        // if the automaker in a result isn't recognized, a fallback class is attributed to the vehicle div.
         div.classList.add("logoMissing");
       }
 
+      // conditional statement to determine the vehicle's fuel type and to display an icon to represent it; electric or gas.
       if (result.fuel_type == "electricity") {
         div.classList.add("fuelTypeE");
       } else {
         div.classList.add("fuelTypeG");
       }
 
-      // Make a simple template for the car and add it to the page
+      // Make a simple template for the vehicle and add it to the page
       div.innerHTML = `
         <img class="makeLogo" src="${makeLogo}"></img>
         <p class="make">Make: ${result.make}</p>
@@ -177,11 +184,13 @@ const displayResults = (response) => {
   }
 };
 
+// a function to animate the search button with a stylized look.
 function ignition() {
   let btnSearch = document.querySelector("#btnSearch");
   btnSearch.classList.add("ignition");
 }
 
+// a function to clear the search results upon selecting the reset button.
 function clearQuery() {
   mainContent.innerHTML = "";
   btnSearch.classList.remove("ignition");
